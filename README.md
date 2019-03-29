@@ -1,9 +1,16 @@
-# DxwGovukFrontendRails
+# GOVUK Frontend for Rails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dxw_govuk_frontend_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+https://github.com/alphagov/govuk-frontend
 
-TODO: Delete this and the text above, and describe your gem
+## Limitations
 
+This gem does not include the ie8 version of GOVUK Frontend, as the service standard no longer requires it:
+
+https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices
+
+This gem and its documentation cannot tell you how to use the GOVUK effectively, see the GOVUK Design System documentation for that:
+
+https://design-system.service.gov.uk/
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -16,19 +23,47 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install dxw_govuk_frontend_rails
-
 ## Usage
+Your Rails app will need to have sass enabled.
 
-TODO: Write usage instructions here
+### Basic usage
 
-## Development
+If the service you are building does not need to modify or extend the GOVUK Frontend all you need to do is import the main sass and javascript files into your Rails app:
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+- create a sass file in your application:
+```
+app/assets/stylesheets/govuk_frontend_rails.scss
+```
+- import the styles into `govuk_frontend_rails.scss`:
+```sass
+@import "govuk-frontend-rails";
+```
+- require the `govuk-frontend-rails.scss` file in `application.css` or equivalent:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+*= require govuk_frontend_rails
+```
+
+- require the javascript into `app/assets/javascripts/application.js`:
+
+```
+//= require govuk_frontend_rails
+```
+- initialise the GOVUK Frontend either in a .js file on in your application layout:
+
+```javascript
+window.onload = function() {
+  window.GOVUKFrontend.initAll()
+};
+```
+- update your application markup to use the GOVUK Frontend class names
+
+IMPORTANT: You cannot use the GOVUK Frontend without changes if the service you are building is not on GOV.UK, read and understand the guidance here:
+
+https://www.gov.uk/service-manual/design/making-your-service-look-like-govuk#if-your-service-isnt-on-govuk
+
+## Tracking version
+We aim to tracking the version of GOVUK Frontend.
 
 ## Contributing
 
