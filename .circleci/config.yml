@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
       - image: circleci/ruby:2.6.1-node-browsers
 
@@ -9,6 +9,25 @@ jobs:
     steps:
       - checkout
       - run:
-          name: 'compile sass'
+          name: Compile sass
           command: |
             npx node-sass ./vendor/assets/stylesheets/govuk-frontend-rails.scss /tmp/govuk-frontend-rails.css
+      - run:
+          name: Setup Rubygems
+          command: bash .circleci/setup-rubygems.sh
+
+      - run:
+          name: Publish to Rubygems
+          command: |
+            gem build dxw_govuk_frontend_rails.gemspec
+            gem push "dxw_govuk_frontend_rails-$(git describe --tags).gem"
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - deploy:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
