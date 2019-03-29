@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Adds the GOVUK frontend to a Rails application.}
   spec.description   = %q{Adds the GOVUK frontend to a Rails application.}
-  spec.homepage      = "https://github.com/mec/govuk_frontend_rails"
+  spec.homepage      = "https://github.com/mec/dxw_govuk_frontend_rails"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
