@@ -43,7 +43,7 @@ end
 task 'javascripts' do
   files = Rake::FileList['node_modules/govuk-frontend/common.js'].each do |source|
     target = source.sub('node_modules/govuk-frontend', 'vendor/assets/javascripts')
-    target = target.sub('common.js', 'govuk_frontend_rails.js')
+    target = target.sub('all.js', 'govuk_frontend_rails.js')
     mkdir_p(File.dirname(target))
     copy_file source, target
   end
