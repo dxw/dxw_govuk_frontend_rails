@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.1-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run:
+          name: 'compile sass'
+          command: |
+            npx node-sass ./vendor/assets/stylesheets/govuk-frontend-rails.scss /tmp/govuk-frontend-rails.css
