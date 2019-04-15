@@ -1,3 +1,3 @@
 module DxwGovukFrontendRails
-  VERSION = "2.9.0-alpha.1"
+  VERSION = "2.10.0.pre"
 end

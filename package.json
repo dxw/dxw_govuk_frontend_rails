@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/mec/dxw_govuk_frontend_rails#readme",
   "dependencies": {
-    "govuk-frontend": "^2.9.0"
+    "govuk-frontend": "^2.10.0"
   }
 }
