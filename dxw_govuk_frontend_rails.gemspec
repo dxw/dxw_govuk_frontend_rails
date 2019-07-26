@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = DxwGovukFrontendRails::VERSION
   spec.authors       = ["mec", "pezholio"]
 
-  spec.summary       = %q{Adds the GOVUK frontend to a Rails application.}
-  spec.description   = %q{Adds the GOVUK frontend to a Rails application.}
-  spec.homepage      = "https://github.com/mec/dxw_govuk_frontend_rails"
+  spec.summary       = %q{Adds the GOVUK frontend to a Rails application that uses the Asset Pipeline.}
+  spec.description   = %q{Adds the GOVUK frontend to a Rails application that uses the Asset Pipeline.}
+  spec.homepage      = "https://github.com/dxw/dxw_govuk_frontend_rails"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
