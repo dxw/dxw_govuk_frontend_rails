@@ -65,14 +65,14 @@ https://www.gov.uk/service-manual/design/making-your-service-look-like-govuk#if-
 ## Tracking version
 We aim to tracking the version of GOVUK Frontend.
 
-## Contributing
+## Updating to a new Version of GOVUK Frontend
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dxw_govuk_frontend_rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+When a new version of the GOVUK Frontend is released:
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the DxwGovukFrontendRails project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/dxw_govuk_frontend_rails/blob/master/CODE_OF_CONDUCT.md).
+- set the new version number in `package.json` and `lib/dxw_govuk_frontend_rails/version.rb`
+- run  `npm update` to get the new release
+- run `bundle rake` to compile the new assets
+- commit the changes
+- tag with the same release number as GOVUK Frontend
+- push the changes
+- CircleCI will build the gem and push to Rubygems
