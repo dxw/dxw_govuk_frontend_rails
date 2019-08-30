@@ -1,6 +1,16 @@
 # GOVUK Frontend for Rails
 
+Adds the GOVUK Frontend for Rails using the asset pipeline.
+
 https://github.com/alphagov/govuk-frontend
+
+## Breaking Changes in v3.0.0
+
+This release of the GOVUK Frontend has breaking changes! Do not update to this version until you have read and understood:
+
+You will not be required to updated any file paths with govuk as we take care of that for you, all others changes will need to be managed:
+
+https://github.com/alphagov/govuk-frontend/releases/tag/v3.0.0
 
 ## Limitations
 
