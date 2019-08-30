@@ -85,4 +85,4 @@ When a new version of the GOVUK Frontend is released:
 - commit the changes
 - tag with the same release number as GOVUK Frontend
 - push the changes
-- CircleCI will build the gem and push to Rubygems
+- Github acitons will build the gem and push to Rubygems
