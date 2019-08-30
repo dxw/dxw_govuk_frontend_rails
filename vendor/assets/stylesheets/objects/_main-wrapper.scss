@@ -20,6 +20,8 @@
 // </div>
 
 
+/// @deprecated Replace this mixin with more direct references to the [spacing
+/// mixins](https://design-system.service.gov.uk/styles/spacing/#spacing-on-custom-components).
 @mixin govuk-main-wrapper {
   // In IE11 the `main` element can be used, but is not recognized  –
   // meaning it's not defined in IE's default style sheet,
@@ -37,7 +39,11 @@
   }
 }
 
-// Use govuk-main-wrapper--l when you page does not have Breadcrumbs, phase banners or back links
+/// Use govuk-main-wrapper--l when you page does not have Breadcrumbs, phase
+/// banners or back links.
+///
+/// @deprecated Replace this mixin with more direct references to the [spacing
+/// mixins](https://design-system.service.gov.uk/styles/spacing/#spacing-on-custom-components).
 @mixin govuk-main-wrapper--l {
   @include govuk-responsive-padding(8, "top");
 }
@@ -47,6 +53,14 @@
     @include govuk-main-wrapper;
   }
 
+  // Using the `.govuk-main-wrapper--auto-spacing` modifier should apply the
+  // correct spacing depending on whether there are any elements
+  // (such the back link, breadcrumbs or phase banner components) before the
+  // `.govuk-main-wrapper` in the `govuk-width-container`.
+  //
+  // If you need to control the spacing manually, use the
+  // `govuk-main-wrapper--l` modifier instead.
+  .govuk-main-wrapper--auto-spacing:first-child,
   .govuk-main-wrapper--l {
     @include govuk-main-wrapper--l;
   }
