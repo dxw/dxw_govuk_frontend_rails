@@ -3,11 +3,11 @@ name: Ruby Gem
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
-    name: Build + Publish
+    name: Publish to Rubygems
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
       with:
         version: 2.6.x
 
-    - name: Compile sass
+    - name: Check sass compiles
       run: |
         npx node-sass ./vendor/assets/stylesheets/govuk-frontend-rails.scss /tmp/govuk-frontend-rails.css
 
