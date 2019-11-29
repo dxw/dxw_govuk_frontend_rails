@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dxw_govuk_frontend_rails (3.3.0)
+    dxw_govuk_frontend_rails (3.4.0)
 
 GEM
   remote: https://rubygems.org/
