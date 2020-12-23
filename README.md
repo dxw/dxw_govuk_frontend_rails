@@ -6,7 +6,8 @@ Although this gem makes it super easy to add the GOVUK Frontend to your
 Rails applications, we would recommend using it as a guide to add the
 GOVUK Frontend yourself.
 
-## About Adds the GOVUK Frontend for Rails using the asset pipeline.
+## About 
+Adds the GOVUK Frontend for Rails using the asset pipeline.
 
 https://github.com/alphagov/govuk-frontend
 
@@ -30,15 +31,17 @@ https://www.gov.uk/service-manual/technology/designing-for-different-browsers-an
 This gem and its documentation cannot tell you how to use the GOVUK effectively,
 see the GOVUK Design System documentation for that:
 
-https://design-system.service.gov.uk/ ## Installation
+https://design-system.service.gov.uk/ 
+
+## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby gem 'dxw_govuk_frontend_rails' ```
+`ruby gem 'dxw_govuk_frontend_rails'`
 
 And then execute:
 
-    $ bundle
+`bundle`
 
 ## Usage Your Rails app will need to have sass enabled.
 
@@ -48,22 +51,23 @@ If the service you are building does not need to modify or extend the GOVUK
 Frontend all you need to do is import the main sass and javascript files into
 your Rails app:
 
-- create a sass file in your application: ```
-  app/assets/stylesheets/govuk_frontend_rails.scss ```
-- import the styles into `govuk_frontend_rails.scss`: ```sass @import
-  "govuk-frontend-rails"; ```
+- create a sass file in your application: 
+
+`app/assets/stylesheets/govuk_frontend_rails.scss`
+- import the styles into `govuk_frontend_rails.scss`: 
+
+`@import "govuk-frontend-rails";`
 - require the `govuk-frontend-rails.scss` file in `application.css` or
-  equivalent:
+  equivalent: 
 
-``` *= require govuk_frontend_rails ```
+  `*= require govuk_frontend_rails`
+- require the javascript into `app/assets/javascripts/application.js`: 
 
-- require the javascript into `app/assets/javascripts/application.js`:
-
-``` //= require govuk_frontend_rails ```
+`//= require govuk_frontend_rails`
 - initialise the GOVUK Frontend either in a .js file on in your application
   layout:
 
-```javascript window.onload = function() { window.GOVUKFrontend.initAll() }; ```
+`javascript window.onload = function() { window.GOVUKFrontend.initAll() };`
 - update your application markup to use the GOVUK Frontend class names
 
 IMPORTANT: You cannot use the GOVUK Frontend without changes if the service you
@@ -71,7 +75,10 @@ are building is not on GOV.UK, read and understand the guidance here:
 
 https://www.gov.uk/service-manual/design/making-your-service-look-like-govuk#if-your-service-isnt-on-govuk
 
-## Tracking version We aim to tracking the version of GOVUK Frontend.
+## Tracking version 
+We aim to track the latest version of GOVUK Frontend but we may fall behind,
+open an issue if we are behind and a new release would be helpful (or open a PR
+with the latest release!)
 
 ## Updating to a new Version of GOVUK Frontend
 
