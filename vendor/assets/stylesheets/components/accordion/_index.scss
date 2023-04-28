@@ -1,7 +1,7 @@
 @include govuk-exports("govuk/component/accordion") {
   $govuk-accordion-base-colour: govuk-colour("black");
   $govuk-accordion-hover-colour: govuk-colour("light-grey", $legacy: "grey-3");
-  $govuk-accordion-icon-focus-colour: govuk-colour("yellow");
+  $govuk-accordion-icon-focus-colour: $govuk-focus-colour;
   $govuk-accordion-bottom-border-width: 1px;
 
   .govuk-accordion {
@@ -22,15 +22,12 @@
   }
 
   .govuk-accordion__section-button {
+    @include govuk-font($size: 24, $weight: bold);
     @include govuk-text-colour;
 
     display: block;
     margin-bottom: 0;
     padding-top: govuk-spacing(3);
-  }
-
-  .govuk-accordion__section-heading-text {
-    @include govuk-font($size: 24, $weight: bold);
   }
 
   // Remove the bottom margin from the last item inside the content
@@ -49,10 +46,26 @@
       padding-top: 0;
     }
 
-    // Hide the body of collapsed sections
+    // Hide the body of collapsed sections by default for browsers that lack
+    // support for `content-visibility` paired with [hidden=until-found]
     .govuk-accordion__section-content {
       display: none;
+
+      @include govuk-responsive-padding(3, "top");
       @include govuk-responsive-padding(8, "bottom");
+    }
+
+    // Hide the body of collapsed sections using `content-visibility` to enable
+    // page search within [hidden=until-found] regions where browser supported
+    .govuk-accordion__section-content[hidden] {
+      @supports (content-visibility: hidden) {
+        content-visibility: hidden;
+        display: inherit;
+      }
+
+      // Hide the padding of collapsed sections
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     // Show the body of expanded sections
@@ -76,7 +89,7 @@
       cursor: pointer;
       -webkit-appearance: none;
 
-      @include govuk-media-query ($from: desktop) {
+      @include govuk-media-query ($from: tablet) {
         margin-bottom: 14px;
       }
 
@@ -142,7 +155,7 @@
       vertical-align: middle;
 
       // IE8 fallback of icon
-      @include govuk-if-ie8 {
+      @include _govuk-if-ie8 {
         display: inline-block;
         max-height: 20px;
         line-height: 1;
@@ -171,7 +184,7 @@
         border-right: govuk-px-to-rem(2px) solid;
 
         // IE8 fallback of icon with HTML symbol
-        @include govuk-if-ie8 {
+        @include _govuk-if-ie8 {
           content: "\25B2"; // "▲"
           position: relative;
           border: 0;
@@ -186,7 +199,7 @@
               transform: rotate(180deg);
 
       // IE8 fallback of arrow icon
-      @include govuk-if-ie8 {
+      @include _govuk-if-ie8 {
         &:after {
           content: "\25BC"; // "▼"
           -webkit-transform: none;
@@ -276,8 +289,12 @@
     // relates to the content below. Adjust padding to maintain the height of the element.
     // See https://github.com/alphagov/govuk-frontend/pull/2257#issuecomment-951920798
     .govuk-accordion__section--expanded .govuk-accordion__section-button {
-      padding-bottom: govuk-spacing(4);
+      padding-bottom: govuk-spacing(3);
       border-bottom: 0;
+
+      @include govuk-media-query ($from: tablet) {
+        padding-bottom: govuk-spacing(4);
+      }
     }
 
     // As Chevron icon is vertically aligned it overlaps with the focus state bottom border
@@ -305,7 +322,8 @@
 
     // Add toggle link with Chevron icon on left.
     .govuk-accordion__section-toggle {
-      @include govuk-font($size: 19);
+      @include govuk-typography-responsive($size: 19);
+      @include govuk-typography-weight-regular;
       color: $govuk-link-colour;
     }
 
