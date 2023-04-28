@@ -1,3 +1,3 @@
 module DxwGovukFrontendRails
-  VERSION = "4.0.0"
+  VERSION = "4.6.0"
 end

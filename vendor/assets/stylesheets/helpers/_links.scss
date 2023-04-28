@@ -30,12 +30,12 @@
 @mixin govuk-link-decoration {
   text-decoration: underline;
 
-  @if ($govuk-new-link-styles) {
-    @if ($govuk-link-underline-thickness) {
+  @if $govuk-new-link-styles {
+    @if $govuk-link-underline-thickness {
       text-decoration-thickness: $govuk-link-underline-thickness;
     }
 
-    @if ($govuk-link-underline-offset) {
+    @if $govuk-link-underline-offset {
       text-underline-offset: $govuk-link-underline-offset;
     }
   }
@@ -50,7 +50,7 @@
 /// @access public
 
 @mixin govuk-link-hover-decoration {
-  @if ($govuk-new-link-styles and $govuk-link-hover-underline-thickness) {
+  @if $govuk-new-link-styles and $govuk-link-hover-underline-thickness {
     text-decoration-thickness: $govuk-link-hover-underline-thickness;
     // Disable ink skipping on underlines on hover. Browsers haven't
     // standardised on this part of the spec yet, so set both properties
@@ -104,7 +104,7 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       color: $govuk-focus-text-colour;
     }
@@ -152,7 +152,7 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       color: $govuk-focus-text-colour;
     }
@@ -200,7 +200,7 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       color: $govuk-focus-text-colour;
     }
@@ -243,7 +243,7 @@
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       @include govuk-text-colour;
     }
@@ -275,7 +275,9 @@
   // Force a colour change on hover to work around a bug in Safari
   // https://bugs.webkit.org/show_bug.cgi?id=224483
   &:hover {
-    color: rgba($govuk-text-colour, .99);
+    @if type-of($govuk-text-colour) == color {
+      color: rgba($govuk-text-colour, .99);
+    }
   }
 
   &:active,
@@ -286,7 +288,7 @@
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       @include govuk-text-colour;
     }
@@ -329,7 +331,7 @@
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include govuk-compatibility(govuk_template) {
+  @include _govuk-compatibility(govuk_template) {
     &:link:focus {
       color: $govuk-focus-text-colour;
     }
