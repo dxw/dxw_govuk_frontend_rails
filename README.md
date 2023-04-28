@@ -1,5 +1,13 @@
 # GOV.UK Frontend for Rails
 
+## Archived
+
+With the new asset pipeline in Rails 7 this project has little value and users
+are encouraged to utilise the GOV.UK Frontend with Rails in a way that best
+suits their own context.
+
+4.6.0 will be the last relase of this gem and this repo will be archived.
+
 ## Read this first
 
 Although this gem makes it super easy to add the GOV.UK Frontend to your Rails
